@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – Roman Numeral Converter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #C9A84C; --gold-light: #F5E9C8; --ink: #1A1208; --ink-mid: #3D2E10;
+      --parchment: #FBF6EC; --parchment-dark: #F0E6CE; --stone: #8A7D6A; --stone-light: #C4B9A8;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--parchment); color: var(--ink); }
+    header { background: var(--ink); color: var(--gold-light); padding: 32px 24px; text-align: center; }
+    header h1 { font-family: 'Playfair Display', serif; font-size: 2rem; }
+    header a { color: var(--gold); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 12px; }
+    main { max-width: 680px; margin: 0 auto; padding: 48px 24px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--ink); margin: 32px 0 12px; }
+    p { color: var(--ink-mid); line-height: 1.75; margin-bottom: 14px; font-size: 0.95rem; }
+    footer { text-align: center; padding: 24px; background: var(--ink); color: var(--stone); font-size: 13px; margin-top: 48px; }
+    footer a { color: var(--gold); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/">← Back to Roman Numeral Converter</a>
+    <h1>About This Tool</h1>
+  </header>
+  <main>
+    <h2>What this site does</h2>
+    <p>This is a free, fast, and accurate Roman numeral converter. It converts any whole number between 1 and 3,999 to its Roman numeral equivalent — and translates any valid Roman numeral back to its numeric value.</p>
+    <p>All conversions happen instantly in your browser. Nothing you type is stored or transmitted.</p>
+
+    <h2>Why we built it</h2>
+    <p>Roman numerals appear constantly in everyday life — on clock faces, in movie credits, at the Super Bowl, in legal and historical documents, on building cornerstones, and in school assignments. We wanted a tool that gets out of your way and just gives you the answer immediately, without ads obscuring the result or unnecessary complexity.</p>
+
+    <h2>How it works</h2>
+    <p>The converter uses the standard Roman numeral system as defined by classical Latin usage. Numbers are composed of seven base symbols (I, V, X, L, C, D, M) combined using additive notation, with six subtractive pairs (IV, IX, XL, XC, CD, CM) for the values 4, 9, 40, 90, 400, and 900.</p>
+    <p>The tool validates Roman numeral input by converting to a number and then converting back — if the re-converted form doesn't match your input exactly, it flags the input as invalid, catching malformed sequences like "IIII" or "VV".</p>
+
+    <h2>Accuracy and limitations</h2>
+    <p>This tool handles the standard range of 1–3,999 (MMMCMXCIX). Numbers above 3,999 traditionally require extended notation (vinculum/overline bars) that is not universally standardized — so we don't include them to avoid ambiguity.</p>
+
+    <h2>Contact</h2>
+    <p>Questions, suggestions, or bug reports? Use our <a href="/contact.html">contact page</a>.</p>
+  </main>
+  <footer>
+    <a href="/">Roman Numeral Converter</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="/contact.html">Contact</a>
+  </footer>
+</body>
+</html>
