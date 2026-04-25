@@ -427,6 +427,40 @@
       margin: 32px 0;
     }
 
+    /* ─── BOOKMARK TIP ─── */
+    .bookmark-tip { margin-bottom: 16px; background: var(--white); border: 1px solid var(--stone-light); border-radius: var(--radius); padding: 12px 16px; font-size: 13px; color: var(--stone); display: flex; align-items: center; gap: 10px; }
+    .bookmark-tip kbd { background: var(--parchment-dark); border: 1px solid var(--stone-light); border-radius: 4px; padding: 1px 7px; font-family: monospace; font-size: 12px; color: var(--ink); }
+
+    /* ─── SHARE BAR ─── */
+    .utility-bar { padding: 20px 32px; border-top: 1px solid var(--parchment-dark); display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .utility-bar-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); width: 100%; margin-bottom: 4px; }
+    .share-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border-radius: 20px; font-size: 12px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; border: 1px solid var(--stone-light); text-decoration: none; transition: opacity 0.15s, transform 0.1s; color: white; }
+    .share-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .share-btn.tw { background: #000; border-color: #000; }
+    .share-btn.fb { background: #1877F2; border-color: #1877F2; }
+    .share-btn.wa { background: #25D366; border-color: #25D366; color: #000; }
+    .share-btn.rd { background: #FF4500; border-color: #FF4500; }
+    .share-btn.cl { background: transparent; color: var(--stone); border-color: var(--stone-light); }
+    .share-btn.cl.copied { border-color: var(--gold-dark); color: var(--gold-dark); }
+
+    /* ─── RELATED TOOLS ─── */
+    .related-section { margin-top: 32px; }
+    .related-section h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+    .related-card { background: var(--white); border: 1px solid var(--stone-light); border-radius: var(--radius); padding: 16px; text-decoration: none; transition: border-color 0.15s; display: block; }
+    .related-card:hover { border-color: var(--gold); }
+    .related-card-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+    .related-card-desc { font-size: 12px; color: var(--stone); }
+    .related-card-emoji { font-size: 1.4rem; margin-bottom: 8px; }
+
+    /* ─── EMBED ─── */
+    .embed-section { margin-top: 16px; background: var(--white); border: 1px solid var(--stone-light); border-radius: var(--radius); padding: 20px; }
+    .embed-section h3 { font-size: 11px; font-weight: 500; color: var(--stone); margin-bottom: 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .embed-code { background: var(--parchment-dark); border: 1px solid var(--stone-light); border-radius: var(--radius); padding: 12px; font-family: monospace; font-size: 11px; color: var(--stone); word-break: break-all; margin-bottom: 10px; line-height: 1.6; }
+    .embed-copy-btn { padding: 7px 16px; background: transparent; border: 1px solid var(--stone-light); border-radius: var(--radius); font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--stone); cursor: pointer; transition: all 0.12s; }
+    .embed-copy-btn:hover { border-color: var(--gold); color: var(--gold-dark); }
+    .embed-copy-btn.copied { border-color: var(--gold-dark); color: var(--gold-dark); }
+
     /* ─── FOOTER ─── */
     footer {
       background: var(--ink);
@@ -475,6 +509,9 @@
   <!-- MAIN CONTENT -->
   <main>
 
+    <!-- BOOKMARK TIP -->
+    <div class="bookmark-tip"><span>🔖</span><span id="bookmark-text">Press <kbd>Ctrl+D</kbd> to bookmark this tool and come back anytime.</span></div>
+
     <!-- TOOL CARD -->
     <div class="tool-card">
 
@@ -517,10 +554,34 @@
         <div class="quick-picks-grid" id="quick-chips"></div>
       </div>
 
+      <!-- SHARE BAR -->
+      <div class="utility-bar">
+        <span class="utility-bar-label">Share this tool with friends:</span>
+        <a class="share-btn tw" id="sh-tw" href="#" target="_blank" rel="noopener">𝕏 Twitter</a>
+        <a class="share-btn fb" id="sh-fb" href="#" target="_blank" rel="noopener">Facebook</a>
+        <a class="share-btn wa" id="sh-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="share-btn rd" id="sh-rd" href="#" target="_blank" rel="noopener">Reddit</a>
+        <button class="share-btn cl" id="sh-cl" onclick="copyLink()">Copy link</button>
+      </div>
+
     </div>
 
     <!-- AD PLACEHOLDER (replace with AdSense) -->
     <div class="ad-sidebar">Advertisement · 300×250</div>
+
+    <!-- RELATED TOOLS (rendered dynamically from tools.js) -->
+    <div class="related-section">
+      <h2>More free tools</h2>
+      <div class="related-grid" id="related-tools-grid"></div>
+    </div>
+
+    <!-- EMBED -->
+    <div class="embed-section">
+      <h3>Embed this tool on your site</h3>
+      <p style="font-size:12px;color:var(--stone);margin-bottom:10px;">Free to embed. The tool includes a "Powered by quickutils.tools" link — no other conditions.</p>
+      <div class="embed-code">&lt;iframe src="https://roman.quickutils.tools/?embed=1" width="100%" height="520" frameborder="0" title="Roman Numeral Converter — quickutils.tools"&gt;&lt;/iframe&gt;</div>
+      <button class="embed-copy-btn" onclick="copyEmbed(this)">Copy embed code</button>
+    </div>
 
     <!-- REFERENCE TABLE SECTION -->
     <div class="content-section">
@@ -606,6 +667,39 @@
   </footer>
 
   <script>
+    // ─── SHARE + BOOKMARK ───
+    const TOOL_URL = 'https://roman.quickutils.tools/';
+    const SHARE_MSG = encodeURIComponent('Handy free Roman numeral converter — converts any number instantly: ' + TOOL_URL);
+    const ENC_URL = encodeURIComponent(TOOL_URL);
+
+    const isMac = /mac/i.test(navigator.platform);
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    const isAndroid = /android/i.test(navigator.userAgent);
+    if (isIOS) document.getElementById('bookmark-text').innerHTML = '🔖 Tap the share button (↑) then "Add to Home Screen" to save this tool.';
+    else if (isAndroid) document.getElementById('bookmark-text').innerHTML = '🔖 Tap the browser menu (⋮) then "Add to Home Screen" to save this tool.';
+    else if (isMac) document.getElementById('bookmark-text').innerHTML = '🔖 Press <kbd>Cmd+D</kbd> to bookmark this tool and come back anytime.';
+
+    document.getElementById('sh-tw').href = `https://twitter.com/intent/tweet?text=${SHARE_MSG}`;
+    document.getElementById('sh-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${ENC_URL}`;
+    document.getElementById('sh-wa').href = `https://wa.me/?text=${SHARE_MSG}`;
+    document.getElementById('sh-rd').href = `https://www.reddit.com/submit?url=${ENC_URL}&title=${encodeURIComponent('Free Roman numeral converter — instantly convert any number')}`;
+
+    function copyLink() {
+      navigator.clipboard.writeText(TOOL_URL).then(() => {
+        const btn = document.getElementById('sh-cl');
+        btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy link'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    function copyEmbed(btn) {
+      const code = document.querySelector('.embed-code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy embed code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
     // ─── CONVERSION LOGIC ───
     const toRomanMap = [
       [1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],
@@ -762,9 +856,22 @@
       ).join('');
     }
 
+    // ─── TOOLS REGISTRY ───
     // ─── INIT ───
     renderChips(quickToRoman);
+
+    // ─── EMBED MODE ───
+    if (new URLSearchParams(window.location.search).get('embed') === '1') {
+      document.querySelector('.ad-banner-top').style.display = 'none';
+      document.querySelector('header').style.display = 'none';
+      document.querySelector('.related-section') && (document.querySelector('.related-section').style.display = 'none');
+      document.querySelector('.embed-section') && (document.querySelector('.embed-section').style.display = 'none');
+      document.querySelector('.content-section') && (document.querySelector('.content-section').style.display = 'none');
+      document.querySelector('.ad-inline') && (document.querySelector('.ad-inline').style.display = 'none');
+      document.querySelector('footer').innerHTML = '<div style="text-align:center;padding:12px;font-size:12px;font-family:sans-serif;color:#8A7D6A;">Powered by <a href="https://quickutils.tools" target="_blank" style="color:#C9A84C;text-decoration:none;font-weight:500;">quickutils.tools</a> — free online utility tools</div>';
+    }
   </script>
+  <script src="https://quickutils.tools/tools.js" onload="renderRelatedTools({currentUrl:'https://roman.quickutils.tools/'})"></script>
 
 </body>
 </html>
