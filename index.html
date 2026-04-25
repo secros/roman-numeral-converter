@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roman Numeral Converter – Instant Number ↔ Roman Numeral Translation</title>
   <meta name="description" content="Instantly convert numbers to Roman numerals and Roman numerals to numbers. Free, fast, and accurate. Works for 1–3,999." />
-  <meta name="keywords" content="roman numeral converter, number to roman numeral, roman numeral translator, what is 2025 in roman numerals, roman numeral calculator" />
+  <meta name="keywords" content="roman numeral converter, number to roman numeral, roman numeral translator, what is 2026 in roman numerals, roman numeral calculator" />
   <link rel="canonical" href="https://yourdomain.com/" />
 
   <!-- Open Graph -->
@@ -495,7 +495,7 @@
           <input
             type="text"
             id="converter-input"
-            placeholder="e.g. 2025"
+            placeholder="e.g. 2026"
             autocomplete="off"
             oninput="handleInput()"
             autofocus
@@ -563,8 +563,8 @@
       <h2>Frequently Asked Questions</h2>
 
       <div class="faq-item">
-        <h3>What is 2025 in Roman numerals?</h3>
-        <p>2025 in Roman numerals is <strong>MMXXV</strong>. M = 1000, M = 1000, XX = 20, V = 5. Total: 1000 + 1000 + 20 + 5 = 2025.</p>
+        <h3>What is 2026 in Roman numerals?</h3>
+        <p>2026 in Roman numerals is <strong>MMXXVI</strong>. M = 1000, M = 1000, XX = 20, V = 5, I = 1. Total: 1000 + 1000 + 20 + 5 + 1 = 2026.</p>
       </div>
 
       <div class="faq-item">
@@ -602,7 +602,7 @@
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <p>&copy; 2025 RomanNumeralConverter.tools — Free online utility. All conversions happen in your browser; no data is stored.</p>
+    <p>&copy; 2026 RomanNumeralConverter.tools — Free online utility. All conversions happen in your browser; no data is stored.</p>
   </footer>
 
   <script>
@@ -642,6 +642,7 @@
     let currentResult = '';
 
     const quickToRoman = [
+      { label: '2026', value: '2026' },
       { label: '2025', value: '2025' },
       { label: '1999', value: '1999' },
       { label: '2024', value: '2024' },
@@ -674,7 +675,7 @@
         document.getElementById('btn-to-roman').classList.add('active');
         document.getElementById('btn-to-number').classList.remove('active');
         label.textContent = 'Enter a number (1 – 3,999)';
-        input.placeholder = 'e.g. 2025';
+        input.placeholder = 'e.g. 2026';
         renderChips(quickToRoman);
       } else {
         document.getElementById('btn-to-roman').classList.remove('active');
